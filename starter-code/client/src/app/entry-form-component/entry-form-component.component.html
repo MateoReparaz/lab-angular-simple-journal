@@ -1,0 +1,21 @@
+<form (ngSubmit)="submitForm(title,content)" #myForm="ngForm">
+  <p> Title
+    <input type="text" name="title" [(ngModel)]="title"
+          #myTitle="ngModel" required />
+  </p>
+  <div *ngIf="myTitle.errors && (myTitle.dirty || myTitle.touched)">
+    <p class="error" [hidden]="!myTitle.errors.minlength">
+      Title is required
+    </p>
+  </div>
+  <p> Content
+    <input type="text" name="content" [(ngModel)]="content"
+          #myContent="ngModel" required />
+  </p>
+  <div *ngIf="myContent.errors && (myContent.dirty || myContent.touched)">
+    <p class="error" [hidden]="!myContent.errors.required">
+      Content is required
+    </p>
+  </div>
+  <button> Add New Entry for the List of entries in entries data base of entries </button>
+</form>
